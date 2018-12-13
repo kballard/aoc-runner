@@ -13,17 +13,28 @@ Implement your solution. Let us do the rest.
 
 * Create a lib project `cargo new advent-of-code-2018 --lib`
 * Add deps to your Cargo.toml: 
+```toml
+aoc-runner = "0.2.0"
+aoc-runner-derive = "0.2.0"
 ```
-aoc-runner = "0.1.0"
-aoc-runner-derive = "0.1.0"
-```
-* Include libs in your lib.rs
-```
-extern crate aoc_runner;
+* Include libs
 
-#[macro_use]
-extern crate aoc_runner_derive;
-```
+  For the 2015 edition:
+  ```rust
+  // in lib.rs
+  extern crate aoc_runner;
+  #[macro_use]
+  extern crate aoc_runner_derive;
+  ```
+
+  For the 2018 edition:
+  ```rust
+  // in lib.rs
+  use aoc_runner_derive::aoc_lib;
+  
+  // in each day##.rs
+  use aoc_runner_derive::{aoc, aoc_generator};
+  ```
 
 * Add `aoc_lib!{ year = 2018 }` at the end of your lib.rs
 * Start coding !
